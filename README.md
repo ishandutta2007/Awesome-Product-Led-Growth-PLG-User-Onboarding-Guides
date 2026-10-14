@@ -1,6 +1,6 @@
 # Awesome-Product-Led-Growth-PLG-User-Onboarding-Guides
 
-# Top Product-Led Growth (PLG) User Onboarding Guide Ecosystem
+## Top Product-Led Growth (PLG) User Onboarding Guide Ecosystem
 
 **Curated List of SaaS Products & Open-Source GitHub Projects**  
 *Focused on In-App Product Tours, Checklists & Feature Adoption Tracking*  
