@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#0e1726" />
+      <stop offset="100%" stop-color="#070a12" />
+    </linearGradient>
+
+    <radialGradient id="glowViolet" cx="20%" cy="25%" r="45%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glowCyan" cx="80%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glowEmerald" cx="50%" cy="85%" r="40%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#e0e7ff" />
+      <stop offset="80%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+    </linearGradient>
+
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.1" />
+      <stop offset="30%" stop-color="#38bdf8" stop-opacity="0.8" />
+      <stop offset="70%" stop-color="#a855f7" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.1" />
+    </linearGradient>
+
+    <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <style>
+      @keyframes pulseGlow {
+        0% { opacity: 0.35; transform: scale(0.98); }
+        50% { opacity: 0.7; transform: scale(1.02); }
+        100% { opacity: 0.35; transform: scale(0.98); }
+      }
+      @keyframes floatSlow {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-7px); }
+        100% { transform: translateY(0px); }
+      }
+      @keyframes floatReverse {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(7px); }
+        100% { transform: translateY(0px); }
+      }
+      @keyframes dashMove {
+        0% { stroke-dashoffset: 200; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes stepPing {
+        0%, 100% { r: 6; opacity: 0.7; }
+        50% { r: 9; opacity: 1; }
+      }
+      .pulse-bg {
+        animation: pulseGlow 8s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .float-badge-1 {
+        animation: floatSlow 5s ease-in-out infinite;
+      }
+      .float-badge-2 {
+        animation: floatReverse 6s ease-in-out infinite;
+      }
+      .animated-path {
+        stroke-dasharray: 8 6;
+        animation: dashMove 12s linear infinite;
+      }
+      .ping-dot {
+        animation: stepPing 2.5s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="380" fill="url(#bgGrad)" />
+
+  <!-- Background Dynamic Glowing Orbs -->
+  <g class="pulse-bg" pointer-events="none">
+    <circle cx="240" cy="90" r="280" fill="url(#glowViolet)" />
+    <circle cx="960" cy="110" r="300" fill="url(#glowCyan)" />
+    <circle cx="600" cy="320" r="240" fill="url(#glowEmerald)" />
+  </g>
+
+  <!-- Subtle Decorative Grid Pattern in Background -->
+  <g stroke="#334155" stroke-opacity="0.12" stroke-width="1" pointer-events="none">
+    <line x1="100" y1="0" x2="100" y2="380" />
+    <line x1="300" y1="0" x2="300" y2="380" />
+    <line x1="500" y1="0" x2="500" y2="380" />
+    <line x1="700" y1="0" x2="700" y2="380" />
+    <line x1="900" y1="0" x2="900" y2="380" />
+    <line x1="1100" y1="0" x2="1100" y2="380" />
+    <line x1="0" y1="80" x2="1200" y2="80" />
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="280" x2="1200" y2="280" />
+  </g>
+
+  <!-- Dynamic Animated Onboarding Stepper Path (Behind Main Text) -->
+  <g pointer-events="none" opacity="0.65">
+    <path class="animated-path" d="M 120 70 C 350 40, 450 110, 600 70 C 750 30, 880 120, 1080 70" fill="none" stroke="url(#lineGrad)" stroke-width="2.5" />
+    <!-- Step nodes -->
+    <circle cx="200" cy="62" r="5" fill="#818cf8" />
+    <circle cx="420" cy="95" r="5" fill="#38bdf8" />
+    <circle cx="600" cy="70" r="6" fill="#c084fc" class="ping-dot" />
+    <circle cx="820" cy="60" r="5" fill="#34d399" />
+    <circle cx="1000" cy="85" r="5" fill="#38bdf8" />
+  </g>
+
+  <!-- Dynamic Floating Decorative Micro-Cards (Sides, Never Overlapping Centered Text) -->
+  <g class="float-badge-1" pointer-events="none" filter="url(#softShadow)">
+    <!-- Top-Left Micro Card: Step 1 Sign-Up -->
+    <g transform="translate(60, 115)">
+      <rect width="160" height="48" rx="10" fill="url(#badgeGrad)" stroke="#6366f1" stroke-width="1.2" stroke-opacity="0.4" />
+      <circle cx="24" cy="24" r="8" fill="#4f46e5" />
+      <text x="24" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+      <text x="42" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold" fill="#e2e8f0">User Signup</text>
+      <text x="42" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">Welcome Modal</text>
+    </g>
+  </g>
+
+  <g class="float-badge-2" pointer-events="none" filter="url(#softShadow)">
+    <!-- Top-Right Micro Card: Step 2 Aha Moment -->
+    <g transform="translate(980, 115)">
+      <rect width="160" height="48" rx="10" fill="url(#badgeGrad)" stroke="#06b6d4" stroke-width="1.2" stroke-opacity="0.4" />
+      <circle cx="24" cy="24" r="8" fill="#0891b2" />
+      <text x="24" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">⚡</text>
+      <text x="42" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold" fill="#e2e8f0">Aha! Moment</text>
+      <text x="42" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">Interactive Tour</text>
+    </g>
+  </g>
+
+  <g class="float-badge-2" pointer-events="none" filter="url(#softShadow)">
+    <!-- Bottom-Left Micro Card: Checklist -->
+    <g transform="translate(60, 260)">
+      <rect width="170" height="48" rx="10" fill="url(#badgeGrad)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4" />
+      <circle cx="24" cy="24" r="8" fill="#059669" />
+      <text x="24" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">✓</text>
+      <text x="42" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold" fill="#e2e8f0">Checklist 4/4</text>
+      <text x="42" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">100% Activated</text>
+    </g>
+  </g>
+
+  <g class="float-badge-1" pointer-events="none" filter="url(#softShadow)">
+    <!-- Bottom-Right Micro Card: Analytics -->
+    <g transform="translate(970, 260)">
+      <rect width="170" height="48" rx="10" fill="url(#badgeGrad)" stroke="#a855f7" stroke-width="1.2" stroke-opacity="0.4" />
+      <circle cx="24" cy="24" r="8" fill="#9333ea" />
+      <text x="24" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">📈</text>
+      <text x="42" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold" fill="#e2e8f0">PLG Conversion</text>
+      <text x="42" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">+38% TTV Velocity</text>
+    </g>
+  </g>
+
+  <!-- FOREGROUND MAIN CONTENT (Clear, Perfectly Centered, High Contrast) -->
+  <!-- Top Category Eyebrow Pill -->
+  <g transform="translate(460, 42)" filter="url(#softShadow)">
+    <rect width="280" height="30" rx="15" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.2" />
+    <circle cx="16" cy="15" r="4" fill="#a855f7" />
+    <text x="145" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#c7d2fe" letter-spacing="1.5" text-anchor="middle">CURATED AWESOME ECOSYSTEM</text>
+  </g>
+
+  <!-- Main Hero Title -->
+  <g filter="url(#softShadow)">
+    <text x="600" y="132" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif" font-size="34" font-weight="900" fill="url(#textGrad)" text-anchor="middle" letter-spacing="-0.5">
+      PRODUCT-LED GROWTH (PLG)
+    </text>
+    <text x="600" y="176" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif" font-size="30" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-0.2">
+      USER ONBOARDING GUIDES
+    </text>
+  </g>
+
+  <!-- Subtitle -->
+  <text x="600" y="216" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="400" fill="#94a3b8" text-anchor="middle" letter-spacing="0.2">
+    In-App Product Tours • Digital Adoption Platforms • Headless Frameworks • Analytics
+  </text>
+
+  <!-- Interactive Category Pills (Centered Bottom Row) -->
+  <g transform="translate(250, 275)" filter="url(#softShadow)">
+    <!-- Pill 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="160" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="80" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#38bdf8" text-anchor="middle">🚀 Top SaaS Suites</text>
+    </g>
+
+    <!-- Pill 2 -->
+    <g transform="translate(175, 0)">
+      <rect width="175" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="87" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#a78bfa" text-anchor="middle">⚡ Open-Source Stacks</text>
+    </g>
+
+    <!-- Pill 3 -->
+    <g transform="translate(365, 0)">
+      <rect width="160" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="80" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#34d399" text-anchor="middle">🎯 In-App Guidance</text>
+    </g>
+
+    <!-- Pill 4 -->
+    <g transform="translate(540, 0)">
+      <rect width="160" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="80" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#fbbf24" text-anchor="middle">📊 Activation Metrics</text>
+    </g>
+  </g>
+
+  <!-- Bottom Accent Line -->
+  <rect x="0" y="376" width="1200" height="4" fill="url(#lineGrad)" />
+</svg>
